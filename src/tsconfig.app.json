@@ -1,0 +1,26 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    "outDir": "../out-tsc/app",
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "paths": {
+    "exceljs": [
+      "node_modules/exceljs/dist/exceljs.js"
+    ]
+  },
+  "enableIvy": false,
+  "files": [
+    "main.ts",
+    "polyfills.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

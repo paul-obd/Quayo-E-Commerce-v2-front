@@ -1,0 +1,54 @@
+<footer class="company-info">
+    <div fxLayout="row wrap" fxLayoutGap="10px grid" style="width: 100%">
+
+        <div fxFlex.md="50%" fxFlex.lg="50%" fxFlex.xl="50%" fxFlex.xs="100%" fxFlex.sm="50%">
+            <div class="footer-content">
+                <h3>{{companyInfo.companyName}}</h3>
+                <p>{{companyInfo.bio}}</p>
+                <ul class="socials">
+                    <li>
+                        <p class="phone-number" *ngIf="companyInfo.phone1 != null || companyInfo.phone1 != undefined">
+                            <mat-icon matPrefix>call</mat-icon> {{companyInfo.phone1}}
+                        </p>
+                    </li>
+                    <li>
+                        <p class="phone-number" *ngIf="companyInfo.phone2 != null || companyInfo.phone2 != undefined">
+                            <mat-icon matPrefix>call</mat-icon> {{companyInfo.phone2}}
+                        </p>
+                    </li>
+                    <li>
+                        <p class="email-p">
+                            <mat-icon matPrefix>mail</mat-icon> {{companyInfo.email}}
+                        </p>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+        <div class="location-wrapper" fxFlex.md="50%" fxFlex.lg="50%" fxFlex.xl="50%" fxFlex.xs="100%" fxFlex.sm="50%" style="width: 100%;">
+            <div class="location">
+
+                <div class="map">
+                    <dx-map #map [zoom]="13" [height]="400" width="100%" provider="bing" [markers]=" this.companyInfoService.markers" type="roadmap" markerIconSrc="https://js.devexpress.com/Demos/RealtorApp/images/map-marker.png">
+                    </dx-map>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-content-bottom">
+        <div class="footer-menu">
+
+            <ul class="socials">
+                <li><a [href]="companyInfo.facebookLink" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a [href]="companyInfo.twitterLink" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a [href]="companyInfo.instagramLink" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                <li><a [href]="companyInfo.linkedinLink" target="_blank"><i class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+</footer>

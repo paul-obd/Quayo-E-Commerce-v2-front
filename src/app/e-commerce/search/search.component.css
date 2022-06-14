@@ -1,0 +1,27 @@
+:host ::ng-deep .mat-focused .mat-form-field-label {
+ 
+    color: var(--blue) !important;
+  }
+  
+  :host ::ng-deep .mat-form-field-underline {
+    
+    background-color: var(--blue) !important;
+  }
+  
+  :host ::ng-deep .mat-form-field-ripple {
+    
+    background-color: var(--blue) !important;
+    
+  }
+  
+  :host ::ng-deep .mat-label {
+    color: var(--blue) !important;
+  }
+  
+  :host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: var(--blue) !important;
+  }
+
+  :host ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0em !important;
+}

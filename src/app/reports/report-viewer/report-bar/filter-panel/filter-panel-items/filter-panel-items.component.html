@@ -1,0 +1,7 @@
+<div class="filter-panel-items-container">
+
+  <div class="item-container" *ngFor="let filter of finalPanelFilter.filters">
+    <app-filter-item [filterData]="filter.filterData" [filterDataColumns]="filter.filterColumns" (filterDataRecivedEvent)="selectedDataChanged($event)" [name]="filter.name" [matIcon]="filter.icon" [placeholder]="filter.placeholder" [type]="filter.filterType"></app-filter-item>
+  </div>
+
+</div>

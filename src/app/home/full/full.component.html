@@ -1,0 +1,171 @@
+<dx-load-panel #loadPanel shadingColor="rgba(0,0,0,0.4)" [(visible)]="loadingVisible" [showIndicator]="true" [showPane]="false" [shading]="true" [closeOnOutsideClick]="false">
+</dx-load-panel>
+
+<div id="main-div" class="main-container" [dir]="dir" [ngClass]="{'minisidebar': minisidebar, 'boxed': boxed, 'danger': danger, 'blue': blue, 'green': green, 'dark': dark }">
+
+    <!-- top side bar -->
+    <mat-toolbar color="primary" class="topbar telative">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/webportal/">
+                <b>
+                    <img src="assets/images/quayo-logo.svg" alt="homepage" class="dark-logo">
+                    <img src="assets/images/quayo-logo.svg" alt="homepage" class="light-logo">
+                </b>
+                <span fxShow="false" fxShow.gt-xs>
+                    <img src="assets/images/quayo-title.svg" alt="homepage" class="dark-logo">
+                    <img src="assets/images/quayo-title.svg" class="light-logo" alt="homepage">
+                </span>
+            </a>
+        </div>
+        <button mat-icon-button (click)="snav.toggle() && clickEvent()" value="sidebarclosed">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <button mat-icon-button class="srh-btn" (click)="fullScreenToggle()">
+            <mat-icon>fullscreen</mat-icon>
+        </button>
+
+        <span id='title-separator' class="title-separator"></span>
+        <span id='title' class="title text-nowrap"></span>
+
+        <form class="app-search" [ngClass]="{'show-search': showSearch}">
+            <input type="text" class="form-control" placeholder="{{'SEARCH' | translate}}">
+            <a class="cl-srh-btn" (click)="showSearch = !showSearch">
+                <i class="ti-close"></i>
+            </a>
+        </form>
+        <span fxFlex></span>
+
+        <app-header></app-header>
+
+
+        <button [matMenuTriggerFor]="message" mat-icon-button class="m-r-10" matTooltip="{{ 'NOTIFICATIONS' | translate }}">
+            <mat-icon>email</mat-icon>
+            <div class="notify">
+                <span class="heartbit"></span>
+                <span class="point"></span>
+            </div>
+        </button>
+        <mat-menu #message="matMenu" class="mymessage">
+            <div class="mailbox">
+                <ul>
+                    <li>
+                        <div class="drop-title">{{ 'YOU HAVE' | translate }} {{myFavoriteReports.length}} {{ 'FAVORITE REPORTS' | translate }}</div>
+                    </li>
+                    <li>
+                        <div class="message-center">
+                            <perfect-scrollbar [config]="config">
+                                <!-- Message -->
+                                <a style="cursor: pointer;" (click)="navigateToReport(mymessage.reportId)" *ngFor="let mymessage of myFavoriteReports">
+                                    <div class="user-img">
+                                        <mat-icon class="img-circle" width="40">{{mymessage.groupIcon}}</mat-icon>
+                                    </div>
+                                    <div class="mail-content">
+                                        <h5>{{mymessage.reportName}}</h5>
+                                        <span class="mail-desc">{{mymessage.groupName}}</span>
+                                    </div>
+                                </a>
+                                <!-- Message -->
+                            </perfect-scrollbar>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </mat-menu>
+
+
+        <button (click)="end.toggle()" mat-icon-button class="ml-xs overflow-visible" matTooltip="{{ 'SETTINGS' | translate }}">
+            <mat-icon>settings</mat-icon>
+        </button>
+
+
+
+    </mat-toolbar>
+    <!-- ===================================================================================================================== -->
+    <!-- bottom div -->
+    <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 0 : 0" [ngClass]="{'minisidebar': minisidebar}">
+
+        <!-- left side bar -->
+        <mat-sidenav #snav id="snav" class="pl-xs" fixedTopGap="0" [style.visibility]="'hidden'" [mode]="mobileQuery.matches ? 'side' : 'over'" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches" [perfectScrollbar]="config" (open)="sidebarOpened = true"
+            (close)="sidebarOpened = false">
+
+            <div style="margin:0px 12px;">
+                <app-sidebar [sideBar]="snav" *ngIf="isDataEntriesLoaded" class="app-sidebar"></app-sidebar>
+            </div>
+
+        </mat-sidenav>
+
+        <!-- ===================================================================================================================== -->
+        <!-- right side bar -->
+        <mat-sidenav #end position="end" class="chat-panel" mode="over" opened="false">
+            <div class="scroll">
+                <mat-nav-list>
+                    <h3 mat-subheader class="text-uppercase font-weight-bold">{{ 'ACCOUNT' | translate }}</h3>
+
+                    <mat-list-item>
+                        <button (click)="onLogOut()" style="padding-left: 0px;font-size: 14px;" mat-menu-item>
+                            <mat-icon>exit_to_app</mat-icon> {{ 'LOGOUT' | translate }}
+                        </button>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <button (click)="onChangePasswordClick()" style="padding-left: 0px;font-size: 14px;" mat-menu-item>
+                            <mat-icon>lock</mat-icon> {{ 'CHANGE PASSWORD' | translate }}
+                        </button>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <h3 mat-subheader class="text-uppercase font-weight-bold">{{ 'FILTER DATA' | translate }}</h3>
+                    <mat-list-item>
+                        <button (click)="onRefresh()" style="padding-left: 0px;font-size: 14px;" mat-menu-item>
+                            <mat-icon>refresh</mat-icon> {{'REFRESH' | translate}}
+                        </button>
+
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+
+                    <h3 mat-subheader class="text-uppercase font-weight-bold">{{ 'SETTINGS' | translate }}</h3>
+
+                    <mat-list-item>
+                        <mat-slide-toggle color="warn" [(ngModel)]="dark" (change)="changeDevextremeTheme(dark)">
+                            {{'DARK MODE' | translate}}</mat-slide-toggle>
+                    </mat-list-item>
+
+
+                    <mat-divider></mat-divider>
+                    <h3 mat-subheader class="text-uppercase font-weight-bold">{{ 'COLORS' | translate }}</h3>
+                    <mat-list-item>
+                        <mat-checkbox color="warn" [(ngModel)]="danger" (change)="green = blue = false" class="text-danger">
+                            {{ 'RED' | translate }}
+                        </mat-checkbox>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-checkbox color="warn" [(ngModel)]="green" (change)="danger = blue = false" class="text-megna">
+                            {{ 'TEAL GREEN' | translate }}
+                        </mat-checkbox>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <mat-checkbox color="warn" [(ngModel)]="blue" (change)="green = danger = false" class="text-info">
+                            {{ 'BLUE' | translate }}
+                        </mat-checkbox>
+                    </mat-list-item>
+
+                </mat-nav-list>
+            </div>
+        </mat-sidenav>
+
+        <!-- ===================================================================================================================== -->
+        <!-- body -->
+        <mat-sidenav-content class="page-wrapper" [ngClass]="status ? 'minitoggle' : ''">
+            <app-breadcrumb></app-breadcrumb>
+            <div class="page-content">
+                <router-outlet>
+                    <app-spinner></app-spinner>
+                </router-outlet>
+
+            </div>
+        </mat-sidenav-content>
+
+        <!-- ===================================================================================================================== -->
+
+
+    </mat-sidenav-container>
+</div>

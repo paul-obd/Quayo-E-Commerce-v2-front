@@ -1,0 +1,3 @@
+<dx-gallery *ngIf="carouselService.carouselImagesFullPath !== null && carouselService.carouselImagesFullPath.length>0" [dataSource]="carouselService.carouselImagesFullPath" [height]="400" [slideshowDelay]="2000" [loop]="true" [swipeEnabled]="true" [showNavButtons]="true"
+    [showIndicator]="true">
+</dx-gallery>

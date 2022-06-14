@@ -1,0 +1,29 @@
+<div [ngClass]="{'dashboard-component-container': isDefaultStyle , 'component-default-background': isDefaultBackground, 'component-white-background': isWhiteBackground}">
+
+    <!-- Notification red circle -->
+    <div *ngIf="isDefaultStyle" class="notifaction-dot-container" [hidden]="!isDatasourceChangedNotification">
+        <div class="notification-dot"></div>
+    </div>
+
+    <!-- Loading spinner -->
+    <div style="position: relative;" >
+        <div class="mat-spinner-main-container" *ngIf="isLoading">
+           <mat-spinner></mat-spinner>
+    </div>
+
+    <!-- Connection error and retry button -->
+    <div style="position: relative;" >
+        <div class="error-in-connection-container" *ngIf="isErrorInConnection">
+          <div> Error in Conncetion </div>
+           <div> <button mat-button (click)="retry()"> <mat-icon>refresh</mat-icon> Retry</button> </div>
+        </div>
+    </div>
+
+    <!-- Components section -->
+    <div [ngStyle]="{'visibility' : componentHidden ? 'hidden':'visible'}">
+        
+        <ng-container #viewContainerRef></ng-container>
+    
+    </div>
+
+</div>

@@ -1,0 +1,44 @@
+<table class="items-table">
+    <tr class="header ">
+        <th>  </th>
+        <th>{{'NAME' | translate}}</th>
+        <th>{{'PRICE' | translate}}</th>
+        <th>{{'QUANTITY' | translate}}</th>
+        <th>{{'ADD TO BASKET' | translate}}</th>
+    </tr>
+    <tr app-table-item *ngFor="let item of items; let i = index" [ngClass]="{'grey': (i % 2 === 0) }"
+    [item_code]="item.item_code" [description]="item.description" [price]="item.price"
+    [in_stock]="item.in_stock" [image_path]="item.image_path">
+
+    </tr>  
+</table>
+
+
+
+<!-- <dx-data-grid id="gridContainer" [dataSource]="items" dataRowTemplate="dataRowTemplateName" [columnAutoWidth]="true"
+    [showBorders]="false">
+
+
+
+
+    <dxi-column dataField="" caption=" "></dxi-column>
+    <dxi-column dataField="description" [caption]="'Name' | translate"></dxi-column>
+    <dxi-column dataField="price" [caption]="'Price' | translate"></dxi-column>
+    <dxi-column dataField="quantity" [caption]="'Quantity' | translate"></dxi-column>
+    <dxi-column dataField="" [caption]="'Add To Basket' | translate"></dxi-column>
+
+    <ng-container *dxTemplate="let item of 'dataRowTemplateName';">
+        <tr app-table-item [ngClass]="{'grey': isItemDivisibleByTwo(item.data.description) }"
+            [item_code]="item.data.item_code" [description]="item.data.description" [price]="item.data.price"
+            [in_stock]="item.data.in_stock" [image_path]="item.data.image_path">
+
+        </tr>
+    </ng-container>
+
+
+    <dxo-load-panel [enabled]="false"></dxo-load-panel>
+    <dxo-scrolling mode="infinite"></dxo-scrolling>
+    <dxo-sorting mode="none"></dxo-sorting>
+
+
+</dx-data-grid> -->

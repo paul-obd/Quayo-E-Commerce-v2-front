@@ -1,0 +1,21 @@
+<div class="sort-by-container">
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>{{'ORDER BY' | translate}}</mat-label>
+
+        <mat-select [(ngModel)]="_itemsService.sortBy" (selectionChange)="sortItems()">
+            <mat-option value="none">
+                {{'NONE' | translate}}
+            </mat-option>
+            <mat-option value="higherToLowerPrice">
+                {{'HIGHER TO LOWER PRICE' | translate}}
+            </mat-option>
+            <mat-option value="lowerToHigherPrice">
+                {{'LOWER TO HIGHER PRICE' | translate}}
+            </mat-option>
+        </mat-select>
+
+    </mat-form-field>
+
+</div>

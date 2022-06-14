@@ -1,0 +1,4 @@
+::ng-deep #gridContainer {
+    height: calc(100vh - 163px);
+    width: calc(100% - 20px);
+}

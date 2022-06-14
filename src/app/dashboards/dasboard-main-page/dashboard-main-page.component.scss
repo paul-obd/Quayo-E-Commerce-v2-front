@@ -1,0 +1,16 @@
+.mat-spinner-main-container {
+    top: 20vh;
+    position: relative;
+    left: 45%;
+    width: 30px;
+}
+
+.error-in-connection-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    position: absolute;
+    width: 100%;
+    top: 1em;
+}

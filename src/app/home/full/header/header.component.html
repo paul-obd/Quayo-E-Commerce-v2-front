@@ -1,0 +1,15 @@
+<!-- ============================================================== -->
+<!-- Profile - style you can find in header.scss -->
+<!-- ============================================================== -->
+
+
+<button [matMenuTriggerFor]="language" mat-icon-button class="m-r-5">
+  <img [src]="getLanguage()=='en'?'assets/images/usa-flag.jpg': getLanguage()=='fr'?'assets/images/fr-flag.png' : 'assets/images/ar-flag.png'" alt="language"
+    class="flag-pic">
+</button>
+<mat-menu #language="matMenu" class="mymegamenu">
+    <button mat-menu-item (click)="onEnglishClick()">English</button>
+    <button mat-menu-item (click)="onFrenchClick()">French</button>
+    <button mat-menu-item (click)="onArabicClick()">Arabic</button>
+
+</mat-menu>

@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\dashboards",
+    "\\src\\app\\dashboards\\dashboard-viewer",
+    "\\src\\app\\dashboards\\dashboard-viewer\\dashboard-component",
+    "\\src\\app\\dashboards\\dashboard-viewer\\dashboard-component\\component-types",
+    "\\src\\app\\dashboards\\dashboard-viewer\\dashboard-component\\component-types\\dashboard-map",
+    "\\src\\app\\reports",
+    "\\src\\app\\reports\\report-viewer",
+    "\\src\\app\\reports\\report-viewer\\report-data"
+  ],
+  "SelectedNode": "\\src\\app\\dashboards\\dashboard-viewer\\dashboard-component\\component-types\\dashboard-map\\dashboard-map.component.ts",
+  "PreviewInSolutionExplorer": false
+}

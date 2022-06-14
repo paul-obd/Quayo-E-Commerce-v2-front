@@ -1,0 +1,288 @@
+:host ::ng-deep .mat-card {
+    margin-top: 0% !important;
+    margin-inline-start: 1% !important;
+    margin-inline-end: 1% !important;
+    margin-bottom: 1% !important;
+}
+
+.red-heart{
+    color: red !important;
+}
+
+.card {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 5% !important;
+}
+
+.load-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price {
+    width: 100%;
+    color: var(--lblue);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-price {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+h2 {
+    font-weight: bolder;
+    font-size: medium !important;
+}
+
+.lbp {
+    color: rgba(44, 67, 72, 0.911);
+    font-size: x-small;
+    font-weight: normal;
+    margin-bottom: 10%;
+    padding-inline-start: 2px;
+}
+
+.quantity {
+    display: flex;
+    justify-content: end;
+    align-items: center !important;
+    color: rgba(44, 67, 72, 0.911);
+    margin-top: 2%;
+}
+
+.quantity-input {
+    width: 25%;
+    background-color: transparent;
+    border: transparent;
+    border: 0;
+    outline: 0;
+    text-align: center !important;
+}
+
+.quantity-input :active {
+    border: 0;
+    outline: 0;
+    border: transparent;
+}
+
+:host ::ng-deep .mat-icon {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start !important;
+    background-color: var(--bgColor);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.disable {
+    filter: opacity(0.5);
+}
+
+img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.card-head {
+    width: 100%;
+    height: 46%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-body {
+    width: 100%;
+    height: 50%;
+}
+
+.body-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mat-card-content {
+    margin-top: 2%;
+}
+
+.mat-card {
+    color: rgba(44, 67, 72, 0.911);
+}
+
+.stock {
+    color: var(--blue);
+}
+
+.sold-out {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sold-out-h1 {
+    color: red;
+}
+
+.add-to-basket-btn {
+    background-color: var(--blue);
+    color: white;
+    width: 100% !important;
+}
+
+.btnn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    margin: 0% !important;
+}
+
+.disable-mat-icon {
+    cursor: not-allowed;
+    pointer-events: none;
+    filter: opacity(0.5);
+}
+
+.description {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.sub-description {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-size: small;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.success-badge {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 15px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    background: forestgreen;
+    color: #fff;
+    padding: 3px 10px;
+}
+
+.danger-badge {
+    position: absolute;
+    inset-inline-start: 0;
+    top: 15px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    background: red;
+    color: #fff;
+    padding: 3px 10px;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #1e88e5;
+    font-weight: 600;
+}
+
+.product-price small {
+    font-size: 80%;
+    font-weight: 400;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.discount-badge {
+    left: 2%;
+    top: 2%;
+    z-index: 1000;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 2px;
+    font-size: x-small !important;
+    height: 5%;
+    width: 12%;
+    flex-direction: column;
+}
+
+.discount-badge>span {
+    font-size: x-small !important;
+}
+
+.red {
+    background-color: #8b00005d;
+    color: #dd1111;
+    font-weight: bold;
+}
+
+.green {
+    background-color: #5bf70046;
+    color: #43b104;
+    font-weight: bold;
+}
+
+code {
+    margin-inline-start: 5px;
+    font-size: 75%;
+    color: #fc4b6c;
+    background-color: #f9e7eb;
+    border-radius: 0.25rem;
+}
+
+.icon-text-button {
+    background-color: transparent;
+    display: inherit;
+}
+
+.heart-badge-grey {
+    position: absolute;
+    inset-inline-end: 0;
+    top: 10px;
+    font-size: 20px;
+    color: grey;
+    padding: 3px 10px;
+    cursor: pointer;
+}

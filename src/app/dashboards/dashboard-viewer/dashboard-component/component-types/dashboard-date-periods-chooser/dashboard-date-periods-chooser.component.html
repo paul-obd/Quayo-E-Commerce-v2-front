@@ -1,0 +1,21 @@
+<div class="component-container">
+    <div mat-button #todayButton [ngClass]="{'button-active': (activeButtonOrder == 1), 'button-not-active': (activeButtonOrder != 1)}" class="button disable-select" (click)="clickOnPeriod('today')">
+        Today
+    </div>
+
+    <div mat-button #last7DaysButton [ngClass]="{'button-active': (activeButtonOrder == 2), 'button-not-active': (activeButtonOrder != 2)}" class="button disable-select" (click)="clickOnPeriod('last7days')">
+        Last 7 days
+    </div>
+
+    <div mat-button #last30DaysButton [ngClass]="{'button-active': (activeButtonOrder == 3), 'button-not-active': (activeButtonOrder != 3)}" class="button disable-select" (click)="clickOnPeriod('mtd')">
+        MTD
+    </div>
+
+    <div mat-button #last30DaysButton [ngClass]="{'button-active': (activeButtonOrder == 4), 'button-not-active': (activeButtonOrder != 4)}" class="button disable-select" (click)="clickOnPeriod('qtd')">
+        QTD
+    </div>
+
+    <div mat-button #last60DaysButton [ngClass]="{'button-active': (activeButtonOrder == 5), 'button-not-active': (activeButtonOrder != 5)}" class="button disable-select" (click)="clickOnPeriod('ytd')">
+        YTD
+    </div>
+</div>

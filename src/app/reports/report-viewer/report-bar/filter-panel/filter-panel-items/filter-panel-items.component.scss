@@ -1,0 +1,22 @@
+.filter-panel-items-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: center;
+  grid-row-gap: 3px;
+  grid-column-gap: 10px;
+}
+
+.item-container {
+  padding: 5px;
+}
+
+@media (max-width: 1000px){
+  .filter-panel-items-container {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    grid-row-gap: 3px;
+    grid-column-gap: 10px;
+  }
+
+}

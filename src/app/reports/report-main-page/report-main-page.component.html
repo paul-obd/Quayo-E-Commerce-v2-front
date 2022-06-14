@@ -1,0 +1,7 @@
+<div class="mat-spinner-main-container" *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div class="report-viewer-container">
+    <app-report-viewer *ngIf="!isLoading" #reportViewer [reportSchema]="reportSchema" (applyFilterAction)="fillDataGrid($event)" [FiltersData]="FiltersData"></app-report-viewer>
+</div>

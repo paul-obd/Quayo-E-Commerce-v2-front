@@ -1,0 +1,14 @@
+<div class="report-data-container" id="reportContainer">
+
+    <!--Dim Screen Component Section-->
+    <app-dim-screen (click)="dimScreenClickEvent()"></app-dim-screen>
+
+    <!--Data Section-->
+    <div class="data-section" id="gridDiv">
+
+        <app-standard-data-grid *ngIf="isStandardDataGrid" [reportData]="this"></app-standard-data-grid>
+        <app-pivot-data-grid *ngIf="isPivotDataGrid" [reportData]="this"></app-pivot-data-grid>
+
+    </div>
+
+</div>

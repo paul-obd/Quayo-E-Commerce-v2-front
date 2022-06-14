@@ -1,0 +1,27 @@
+<div class="top-side-main-container">
+    <div style="margin: 10px 0px 0px 10px; width: 75%;">
+        <div *ngIf="title" class="text-nowrap" style="width: 100%;font-size: 16px; font-weight: 500;" matTooltip="{{ title }}">
+            {{ title }}
+            <span *ngIf="subTitle" class="text-muted text-nowrap" style="min-width: 5px; font-size: 12px; font-weight: 300;" matTooltip="{{ subTitle }}"> • {{ subTitle }}</span>
+        </div>
+    </div>
+    
+    <button style="margin: 3px;" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="refresh()"><mat-icon>refresh</mat-icon>Refresh</button>
+        <button mat-menu-item><mat-icon>description</mat-icon>Details</button>
+        <button mat-menu-item [matMenuTriggerFor]="exportMenu"><mat-icon style="padding-left: 6px;" svgIcon="custom_icon_panel_export"></mat-icon>Export As</button>
+      </mat-menu>
+    
+    <mat-menu #exportMenu="matMenu">
+        <button mat-menu-item (click)="export('png')">PNG</button>
+        <button mat-menu-item (click)="export('jpeg')">JPEG</button>
+        <button mat-menu-item (click)="export('svg')">SVG</button>
+        <button mat-menu-item (click)="export('xlsx')">Excel</button>
+    </mat-menu>
+    
+    <div class="seperate-line"></div>

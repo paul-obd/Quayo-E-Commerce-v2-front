@@ -1,0 +1,30 @@
+.component-container {
+    margin: 5px 5px;
+    display:flex;
+    justify-items:flex-start;
+    align-items: center;
+}
+
+.button {
+    border-radius: 5px;
+    color: white;
+    font-size: 12px;
+    padding: 5px 10px;
+    margin: 0px 5px;
+    cursor:pointer
+}
+
+.button-active {
+    background-color: #979797;
+}
+
+.button-not-active {
+    background-color: #cbcbcb;
+}
+
+.disable-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

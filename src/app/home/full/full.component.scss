@@ -1,0 +1,54 @@
+// Scrollbar Style of Favorite Reports Popup
+.nice-scroll::-webkit-scrollbar-track {
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #F5F5F5;
+}
+
+.nice-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 8px;
+    cursor: pointer;
+    background-color: #F5F5F5;
+}
+
+.nice-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: rgb(156, 156, 156);
+}
+
+.text-nowrap {
+    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+::ng-deep .complete .dx-progressbar-range {
+    background-color: green;
+}
+
+@media(max-width:1600px) {
+    .title {
+        padding-left: 22px !important;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.652);
+    }
+    .title-separator {
+        display: inline;
+        height: 55%;
+        width: 1.5px;
+        background-color: rgba(255, 255, 255, 0.4);
+        margin-left: 12px;
+    }
+}
+
+@media(max-width:450px) {
+    .title {
+        display: none;
+    }
+    .title-separator {
+        display: none;
+    }
+}

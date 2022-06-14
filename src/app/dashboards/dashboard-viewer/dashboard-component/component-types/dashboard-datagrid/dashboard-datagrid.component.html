@@ -1,0 +1,15 @@
+<div class="component-container" [ngStyle]="{'height': height}">
+
+    <dx-data-grid *ngIf="datasource" id="gridContainerDashboard"
+                  [dataSource]="datasource.Table"
+                  [showBorders]="false"
+                  [showColumnLines]="true"
+                  [showRowLines]="true"
+                  [columnAutoWidth]="false"
+                  [hoverStateEnabled]="true">
+
+        <dxo-paging [pageSize]="100"></dxo-paging>
+
+    </dx-data-grid>
+
+</div>

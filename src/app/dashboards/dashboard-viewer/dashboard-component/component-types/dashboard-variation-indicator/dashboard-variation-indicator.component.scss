@@ -1,0 +1,83 @@
+.title-container {
+    margin: 10px 0px 0px 10px;
+    width: 75%;
+}
+
+.title {
+    width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sub-title {
+    min-width: 5px;
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.component-container {
+    display: flex;
+}
+
+.main-container {
+    flex: 50%;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.value {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 0px;
+}
+
+.unit {
+    display: inline;
+    font-size: 20px;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+.variation-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.variation-value-arrow {
+    color: inherit;
+    width: 12px
+}
+
+.variation {
+    margin: 4px;
+    font-size: 16px;
+    color: inherit
+}
+
+.variation-note {
+    color: #aaaaaa;
+    display: inline;
+    width: 30px
+}
+
+.text-nowrap {
+    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

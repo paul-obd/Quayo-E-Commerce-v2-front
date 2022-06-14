@@ -1,0 +1,17 @@
+.top-side-main-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.seperate-line{
+    height: 1px; 
+    width: 100%;
+    background: rgb(211, 211, 211);
+}
+
+.text-nowrap {
+    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+
+    --blue: #337AB7;
+    --lblue: #337AB7;
+     --bgColor: #f5f4f4 ;
+  }
+.custom-snackbar {
+    background-color: black;
+    color: black;
+}
+
+
+.error-snackbar {
+    background: red;
+    color: white;
+    text-align: center;
+}
+
+.warning-snackbar {
+    background: orange;
+    color: white;
+}
+
+.info-snackbar {
+    background: skyblue;
+    color: white;
+}
+
+.success-snackbar {
+    background: green;
+    color: white;
+}
+
+.dxc-item {
+    fill: rgba(0,0,0,0.54) !important;
+}
+
+dx-chart text {
+    fill: rgba(0,0,0,0.54) !important;
+}

@@ -1,0 +1,9 @@
+<dx-range-selector id="range-selector" style="height:70px;"
+                   [value]="[selectedStartValue, selectedEndValue]">
+    <dxo-scale [startValue]="startValue"
+               [endValue]="endValue"
+               minorTickInterval="day"
+               tickInterval="month">
+    </dxo-scale>
+    <dxo-slider-marker format="monthAndDay"></dxo-slider-marker>
+</dx-range-selector>

@@ -1,0 +1,15 @@
+.circle:hover {
+    transition: ease-out 0.2s;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    -webkit-transition: ease-out 0.2s;
+}
+
+.user-info {
+    display: block;
+}
+
+.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}

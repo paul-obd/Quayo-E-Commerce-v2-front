@@ -1,0 +1,36 @@
+<form>
+
+  <!--Text Type-->
+  <mat-form-field #matFormFieldText *ngIf="type == 'Free Text'">
+
+    <input matInput autocomplete="off" (change)="textChange($event)" name="{{name}}" placeholder="{{placeholder}}" #inputElement>
+    <mat-icon *ngIf="matIcon" svgIcon="{{matIcon}}" matSuffix class="mat-icon-style"></mat-icon>
+
+  </mat-form-field>
+  <!--/////////////////////////////////////////////////////////-->
+
+  <!--DataGrid Type-->
+  <mat-form-field #matFormField *ngIf="type == 'Data Grid'" (click)="focusOnFilterInput()" [matMenuTriggerFor]="menu">
+
+    <input [disabled]="!filterData" matInput autocomplete="off" [readonly]="true" name="{{name}}" placeholder="{{placeholder}}" #inputElement>
+    <mat-icon *ngIf="matIcon" svgIcon="{{matIcon}}" matSuffix class="mat-icon-style"></mat-icon>
+
+    <!--DataGrid Menu Table-->
+    <mat-menu #menu="matMenu">
+      <app-text-menu-table *ngIf="filterData" #menuTable (selectedDataChanged)="selectedDataChanged($event)" [filterData]="filterData" [filterDataColumns]="filterDataColumns" (click)="$event.stopPropagation()"></app-text-menu-table>
+      <div id="no-data" *ngIf="!filterData">
+        No Data
+      </div>
+    </mat-menu>
+
+  </mat-form-field>
+  <!--/////////////////////////////////////////////////////////-->
+
+  <!--DatePicker Type-->
+  <mat-form-field *ngIf="type == 'Date'">
+    <input matInput autocomplete="off" (dateChange)="datePickerChange($event)" name="{{name}}" [matDatepicker]="picker" placeholder="{{placeholder}}">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <!--/////////////////////////////////////////////////////////-->
+</form>

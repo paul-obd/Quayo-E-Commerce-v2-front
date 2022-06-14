@@ -1,0 +1,41 @@
+<ng-container #chartTopSideContainer></ng-container>
+
+<div class="component-container" [ngStyle]="{'height': height}">
+
+    <dx-pie-chart *ngIf="datasource"
+                  id="pie"
+                  #dxPieChart
+                  [type]="schema.type"
+                  [palette]="schema.palette"
+                  [paletteExtensionMode]="'schema.paletteExtensionMode'"
+                  [dataSource]="datasource.Table"
+                  (onPointClick)="pointClickHandler($event)"
+                  (onLegendClick)="legendClickHandler($event)">
+        <dxo-legend orientation="center"
+                    itemTextPosition="center"
+                    horizontalAlignment="center"
+                    verticalAlignment="bottom"
+                    [horizontalAlignment]="schema.legend_horizontal_alignment"
+                    [verticalAlignment]="schema.legend_vertical_alignment"
+                    [columnCount]="schema.label_columns_count"
+                    [visible]="(schema.legend_visible == '1') ? true : false">
+                    ></dxo-legend>
+
+        <dxi-series argumentField="key"
+                    valueField="value">
+
+            <dxo-label *ngIf="!isComponentHidden && ((schema.label_visible == '1') ? true : false)" visible="true"
+                       format="#,###.##">
+                <dxo-connector [visible]="true"
+                               [width]="1"></dxo-connector>
+            </dxo-label>
+
+        </dxi-series>
+
+        <dxo-tooltip [enabled]="true"
+                     [visible]="true">
+        </dxo-tooltip>
+
+    </dx-pie-chart>
+
+</div>

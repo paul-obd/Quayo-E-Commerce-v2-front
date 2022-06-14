@@ -1,0 +1,22 @@
+<div fxLayout="row wrap" fxLayoutAlign="space-around center" *ngIf="layouts">
+
+  <div fxLayout="row wrap" *ngFor="let layout of layouts"
+          [fxFlex.xs]="layout.flex_xs"
+          [fxFlex.sm]="layout.flex_sm"
+          [fxFlex.md]="layout.flex_md"
+          [fxFlex.lg]="layout.flex_lg"
+          [fxFlex.xl]="layout.flex_xl">
+
+      <app-dashboard-component *ngFor="let component of layout.components"
+                          [fxFlex.xs]="component.properties.flex_xs"
+                          [fxFlex.sm]="component.properties.flex_sm"
+                          [fxFlex.md]="component.properties.flex_md"
+                          [fxFlex.lg]="component.properties.flex_lg"
+                          [fxFlex.xl]="component.properties.flex_xl"
+                          [Properties]="component.properties"
+                          [Schema]="component.schema">
+      </app-dashboard-component>
+
+  </div>
+
+</div>

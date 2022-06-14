@@ -1,0 +1,39 @@
+<div class="login-register" style="background-color:#1e88e5;">
+    <div class="login-register-box" [dir]="dir">
+        <mat-card>
+            <mat-card-content>
+
+                <img *ngIf="isBetaVersion" style="height:90px; position:absolute; top: 0px; left: 0px;" src="assets/images/beta-version-icon.png" />
+
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="text-center">
+                        <img alt="homepage" src="assets/images/quayo-logo-blue.svg">
+                        <h4 class="m-t-0">{{'FORGET PWD TITLE' | translate}}</h4>
+                    </div>
+                    <p class="text-center font-14">{{'FORGET PWD SUB TITLE' | translate}}</p>
+
+                    <div fxLayout="column" fxLayoutAlign="space-around">
+                        <div class="pb-1">
+                            <mat-form-field style="width: 100%">
+                                <input matInput placeholder="{{'EMAIL ADDRESS' | translate}}" type="email" [formControl]="form.controls['email']">
+                            </mat-form-field>
+                            <small *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" class="text-danger support-text">{{'INCLUDE EMAIL ADDRESS MSG' | translate}}</small>
+                            <small *ngIf="form.controls['email'].errors?.email && form.controls['email'].touched" class="text-danger support-text">{{'INCLUDE VALID EMAIL ADDRESS MSG' |
+                                translate}}</small>
+                        </div>
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                            <button mat-raised-button [disabled]="isLoading" type="submit" class="btn-block btn-lg m-t-20 m-b-20" color="primary">
+                                <div *ngIf="isLoading" class="button-spinner-container">
+                                    <mat-spinner diameter="24"></mat-spinner>
+                                </div>
+                                <span *ngIf="!isLoading">{{'SUBMIT' |translate}}</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

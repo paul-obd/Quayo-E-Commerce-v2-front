@@ -1,0 +1,44 @@
+<div class="component-container" [ngStyle]="{'height': height}">
+
+    <div class="filter-field">
+        <mat-form-field appearance="fill">
+            <mat-label>Items</mat-label>
+            <mat-select (openedChange)="closeSelect($event)" [formControl]="items" multiple>
+                <mat-select-trigger>
+                    {{items.value ? items.value[0] : ''}}
+                    <span *ngIf="items.value?.length > 1" class="example-additional-selection">
+                        (+{{items.value.length - 1}} {{items.value?.length === 2 ? 'other' : 'others'}})
+                    </span>
+                </mat-select-trigger>
+                <mat-option *ngFor="let item of itemsList" [value]="item.code">{{item.description}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Start Date</mat-label>
+            <input matInput [(ngModel)]="start" (dateChange)="applyFilter()" [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="separate-class"></div>
+
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>End Date</mat-label>
+            <input matInput [(ngModel)]="end" (dateChange)="applyFilter()" [matDatepicker]="picker2">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+    </div>
+
+    <div class="separate-class"></div>
+
+    <!--<div class="apply-button-container">
+        <button mat-stroked-button (click)="applyFilter()" >Apply Filter</button>
+    </div>-->
+
+</div>

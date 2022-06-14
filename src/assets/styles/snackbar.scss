@@ -1,0 +1,15 @@
+.error-snackbar {
+    background: $danger;
+    color: $white;
+    text-align: center;
+}
+
+.warning-snackbar {
+    background: $warning;
+    color: $white;
+}
+
+.info-snackbar {
+    background: $info;
+    color: $white;
+}

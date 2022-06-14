@@ -1,0 +1,16 @@
+<div #sideBarAvatarContainer>
+
+    <div class="circle" style="height: 60px;width: 60px;margin-left: 80px;margin-top: 30px;border-radius: 50%;background-size: contain;background-repeat: no-repeat;background-position: center;border: 1px solid #d2d3d5;" [style.background-image]="'url('+imageUrl+')'">
+        <div class="profile-img" style="visibility: hidden;"> </div>
+
+    </div>
+    <div class="user-info" style="text-align: center;margin-top: -15px;">
+        <h5 style="margin-bottom: 0px;">{{userName}}
+            <mat-icon style="height: 15px;width: 15px;" svgIcon="custom_icon_check_mark"></mat-icon>
+        </h5>
+        <span style="font-size: 13px;" class="text-muted">{{level}}</span>
+    </div>
+    <hr>
+
+
+</div>

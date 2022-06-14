@@ -1,0 +1,33 @@
+<mat-accordion>
+    <mat-expansion-panel [expanded]="true" class="mat-elevation-z1">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{attribute.description | translate}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-divider></mat-divider>
+        <div class="body">
+            <mat-list [ngClass]="{'show-less': showShortDesciption == true}">
+                <!-- Search  -->
+                <mat-list-item class="filter-search">
+
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>{{'SEARCH A '| translate}}{{attribute.description | translate}}</mat-label>
+                        <input matInput (keyup)="initSearchListener()" name="searchBar" #search [(ngModel)]="searchValue">
+                    </mat-form-field>
+
+                </mat-list-item>
+
+                <mat-list-item *ngFor="let attrvalue of attributeValues">
+                    <app-filter-checkbox [attrValue]="attrvalue"></app-filter-checkbox>
+                </mat-list-item>
+            </mat-list>
+        </div>
+        <button mat-flat-button (click)="showShortDesciption = !showShortDesciption ">
+            <mat-icon matPrefix>{{showShortDesciption ? 'expand_more': 'expand_less' }}</mat-icon>
+            {{showShortDesciption ? ('SHOW ALL' | translate) : ('SHOW LESS' | translate) }} 
+        </button>
+    </mat-expansion-panel>
+
+</mat-accordion>

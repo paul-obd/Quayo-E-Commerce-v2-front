@@ -1,0 +1,30 @@
+<div class="content">
+    <div class="img">
+        <div *ngIf="imageIsLoaded == false" class="load-image">
+            <mat-spinner></mat-spinner>
+        </div>
+        <img (load)="onImageLoad()" mat-card-image [src]="image_path" loading="lazy"
+            alt="Photo of an item">
+    </div>
+    <div class="body">
+        <div class="description">
+            <h2>{{description}}</h2>
+            <div class="quantity">
+                <mat-icon (click)="decreaseQuantity()">remove</mat-icon>
+                <input (keypress)="validateNumber($event)" (keyup)="seeIfZero()" class="quantity-input" type="number"
+                    [(ngModel)]="basketService.basket[i].orderQuantity">
+                <mat-icon (click)="addQuantity()">add</mat-icon>
+            </div>
+        </div>
+
+        <div class="price">
+            <div class="item-price">
+                <h1>{{price | number}}</h1> <span class="lbp">LBP </span>
+             </div>
+        
+            <mat-icon class="delete" (click)="deleteFromBasket()">delete_forever</mat-icon>
+        </div>
+    </div>
+</div>
+
+<mat-divider></mat-divider>

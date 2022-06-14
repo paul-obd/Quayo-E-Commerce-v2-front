@@ -1,0 +1,78 @@
+<div *ngIf="showCarousel" class="carousel mat-elevation-z2">
+    <app-carousel *ngIf="showCarousel"></app-carousel>
+</div>
+<div class="content">
+    <mat-divider></mat-divider>
+    <div class="for-mobile-search">
+        <div class="filterAndSerch" [dir]="languageService.lang == 'en'? 'ltr': languageService.lang == 'fr'? 'ltr' : 'rtl'">
+            <div class="filter-and-sort">
+
+                <button class="filter-btn" mat-button (click)="toggleDrawer()">
+                    <mat-icon matPrefix>filter_list</mat-icon>
+                    {{'FILTER' | translate}}
+                </button>
+
+                <div class="sortby">
+                    <app-sort-by></app-sort-by>
+                </div>
+            </div>
+
+
+
+            <button *ngIf="this.responsiveService.isMobile == true" (click)="goToBasket()" class="mat-mini-fab-custom" mat-mini-fab cdkDragBoundary=".mat-typography" cdkDrag mat-icon-button color="primary" aria-label="">
+                <mat-icon [matBadge]="basketService.basket.length" matBadgeColor="warn">shopping_cart</mat-icon>
+            </button>
+            <button *ngIf="this.responsiveService.isMobile == false" (mousedown)="aboveMenu.trigger()" (dblclick)="goToBasket()" class="mat-mini-fab-custom" (click)="doTotal()" mat-mini-fab cdkDragBoundary=".mat-typography" cdkDrag mat-icon-button color="primary"
+                aria-label="">
+                <mat-icon [matBadge]="basketService.basket.length" matBadgeColor="warn">shopping_cart</mat-icon>
+            </button>
+
+            <mat-menu #aboveMenu="matMenu" yPosition="below">
+
+                <mat-list>
+                    <mat-list-item *ngIf="basketService.basket.length <= 0">{{'NO ITEMS YET' | translate}}
+                    </mat-list-item>
+                    <mat-list-item class="drop-list" *ngFor="let item of basketService.basket">{{item.description}}
+                        <span class="drop-list-quantity">x{{item.orderQuantity}}</span>
+                    </mat-list-item>
+                    <mat-list-item *ngIf="basketService.basket.length > 0" class="drop-list-total">{{'Total' | translate}}: <span class="total"> {{basketService.total | number}} <span
+                                class="lbp">LBP</span></span>
+                    </mat-list-item>
+                </mat-list>
+            </mat-menu>
+            <button class="grid-btn mat-mini-fab-custom" mat-mini-fab color="primary" (click)="toggleGrid()">
+                <mat-icon *ngIf="responsiveService.grid == 'table'">grid_view</mat-icon>
+                <mat-icon *ngIf="responsiveService.grid == 'cards'">table_view</mat-icon>
+            </button>
+
+            <div class="search-button">
+                <button mat-mini-fab (click)="openSearch()" color="primary" class="mat-mini-fab-custom search-fab-button " *ngIf="itemsService.openSearch  == false && this.responsiveService.isMobile == false">
+                    <mat-icon>search</mat-icon>
+                </button>
+            </div>
+            <div *ngIf="itemsService.openSearch  == true && this.responsiveService.isMobile == false" class="searchh">
+                <app-search></app-search>
+            </div>
+        </div>
+
+        <div class="mobile-search" *ngIf=" this.responsiveService.isMobile == true">
+            <app-search></app-search>
+        </div>
+    </div>
+
+    <mat-divider></mat-divider>
+    <div class="i-a-f">
+        <mat-drawer-container [dir]="languageService.lang == 'en'? 'ltr': languageService.lang == 'fr'? 'ltr' : 'rtl'" class="mat-drawer-content-width" autosize>
+            <mat-drawer fixedInViewport="true" #drawer mode="side">
+                <app-filter></app-filter>
+            </mat-drawer>
+
+            <mat-drawer-content>
+                <div class="items">
+                    <app-items></app-items>
+                </div>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    </div>
+
+</div>

@@ -1,0 +1,22 @@
+<div class="filter-panel-action-container">
+
+    <!--Date Filter-->
+    <div class="item-container">
+        <app-filter-item [type]="'Date'" #dateFrom (filterDataRecivedEvent)="dateFromChanged($event)" [name]="'Start_Date'" placeholder="{{'START DATE' | translate}}" *ngIf="hasStartDate"></app-filter-item>
+    </div>
+    <div class="item-container">
+        <app-filter-item [type]="'Date'" #dateTo (filterDataRecivedEvent)="dateToChanged($event)" [name]="'End_Date'" placeholder="{{'END DATE' | translate}}" *ngIf="hasEndDate"></app-filter-item>
+    </div>
+
+    <!--Apply Filter Button-->
+    <div class="item-container">
+
+        <button mat-raised-button [disabled]="buttonDisabled" (click)="applyFilterButton()" class="filter-button" color="primary">
+      <div *ngIf="buttonDisabled" class="button-spinner-container">
+        <mat-spinner diameter="24"></mat-spinner>
+      </div>
+      <span *ngIf="!buttonDisabled">{{ buttonText }}</span>
+    </button>
+    </div>
+
+</div>

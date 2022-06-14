@@ -1,0 +1,13 @@
+<div class="filter-panel-up-container">
+  <div #filterpanelDiv class="filter-panel-container nice-scroll">
+
+      <!--Report Filter Items Section-->
+    <div class="panel-data-container panel-data-container-hide">
+
+      <app-filter-panel-items #filterPanelItemsCompnent [filters]="FiltersData"></app-filter-panel-items>
+      <app-filter-panel-date-action-button #filterPanelDateActionButton [filterPanelComponent]="this"></app-filter-panel-date-action-button>
+
+    </div>
+
+  </div>
+</div>

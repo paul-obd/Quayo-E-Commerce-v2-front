@@ -1,0 +1,23 @@
+.icon-button-container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.icon-button-icon {
+  background-size: 18px 18px;
+  height: 18px;
+  width: 18px;
+  margin: 5px;
+}
+
+.icon-button-text {
+  font-weight: 500;
+  margin: 5px;
+}
+
+.icon-button-arrow {
+  height: 10px;
+  width: 10px;
+  margin: 5px;
+}

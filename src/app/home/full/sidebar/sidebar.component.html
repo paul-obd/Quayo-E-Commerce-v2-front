@@ -1,0 +1,51 @@
+<img *ngIf="isBetaVersion" style="height:90px; position:absolute; top: -2px; left: -2px;" src="assets/images/beta-version-icon.png" />
+
+<app-side-bar-avatar [imageUrl]="'assets/images/background/male.png'" [userName]="userName" [level]="level">
+</app-side-bar-avatar>
+
+<div>
+    <mat-form-field>
+        <input matInput tabindex="-1" placeholder="{{'SEARCH' | translate}}" aria-label="State" spellcheck="false" [matAutocomplete]="auto" [formControl]="searchReportsCtrl">
+        <mat-icon style="float:right; position:absolute; right:3px; bottom:6px; color: grey">search</mat-icon>
+        <mat-autocomplete (optionSelected)="searchInputOptionSelected($event.option.value)" #auto="matAutocomplete">
+            <mat-option *ngIf="isLoading" class="is-loading">{{'LOADING' | translate}}...</mat-option>
+            <ng-container *ngIf="!isLoading">
+                <mat-option *ngFor="let menuItem of filteredMeunItems" [value]="menuItem.url">
+                    <mat-icon *ngIf="menuItem.itemType == 'dashboard'">dashboard</mat-icon>
+                    <mat-icon *ngIf="menuItem.itemType == 'report'">description</mat-icon>
+                    <span>{{menuItem.description}}</span>
+                </mat-option>
+            </ng-container>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <mat-nav-list appAccordion>
+        <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems" id="{{menuitem.name}}" group="{{menuitem.state}}" (click)="scrollToTop()">
+            <!-- Separator -->
+            <div class="saperator text-muted" *ngIf="menuitem.type === 'saperator'">
+                <span>{{ menuitem.name }}</span>
+            </div>
+
+            <a appAccordionToggle *ngIf="menuitem.type === 'sub' && menuitem.visible === true">
+                <mat-icon>{{ menuitem.icon }}</mat-icon>
+                <span>{{ menuitem.name }}</span>
+                <span fxFlex></span>
+                <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+                <mat-icon class="dd-icon">keyboard_arrow_down</mat-icon>
+            </a>
+
+            <a *ngIf="menuitem.type === 'link'  && menuitem.visible === true" style="white-space: nowrap ;display: inline-block;padding-top: 7px ;overflow: hidden ;text-overflow : ellipsis;width: 180px;content: '...';" class="relative" routerLinkActive="selected"
+                [routerLink]="['/', 'reports', menuitem.state]" [matTooltip]="menuitem.name" matTooltipPosition="right">{{ menuitem.name}}</a>
+
+
+            <mat-nav-list class="sub-item" *ngIf="menuitem.type === 'sub'" (click)="hideSideNav()">
+                <mat-list-item *ngFor="let child of menuitem.children">
+                    <a *ngIf="child.type === 'link'  && child.visible===true" style="white-space: nowrap ;display: inline-block;padding-top: 7px ;overflow: hidden ;text-overflow : ellipsis;width: 180px;content: '...';" class="relative" routerLinkActive="selected" (click)="onSubItemClick(child.parent,child.isReport)"
+                        [routerLink]="child.id==-1?['/', menuitem.state, child.state,1]:child.id==-2?['/', menuitem.state, child.state]:['/', menuitem.state, child.state,child.id]" [matTooltip]="child.name" matTooltipPosition="right">{{ child.name}}</a>
+                </mat-list-item>
+            </mat-nav-list>
+        </mat-list-item>
+
+
+    </mat-nav-list>
+    <app-side-bar-footer *ngIf="true" version="{{versionString}}"></app-side-bar-footer>

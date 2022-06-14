@@ -1,0 +1,60 @@
+
+table{
+    width: 100%;
+    border-collapse: collapse; 
+    background-color: white;
+   
+    border-radius: 5px;
+}
+table, th, td{
+    border-color: transparent !important;
+}
+
+::ng-deep .header{
+
+    border-top-left-radius: 20px !important;
+
+    border-top-right-radius: 20px !important
+     
+}
+
+th{
+    text-align: start !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+}
+
+.tr {
+    border-bottom: 1px solid rgb(168, 168, 168) !important;
+}
+
+
+.grey{
+    background-color: rgb(241, 240, 240);
+}
+
+::ng-deep .dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+ 
+    text-align: start !important;
+}
+
+
+ng-container{
+    overflow-y: hidden !important;
+}
+
+::ng-deep .dx-datagrid-content .dx-datagrid-table .dx-row > td, .dx-datagrid-content .dx-datagrid-table .dx-row > tr > td {
+    vertical-align: middle !important;
+}
+
+::ng-deep .dx-data-grid {
+    overflow-y: hidden  !important;
+}
+
+@media screen and (max-width: 500px) {
+    ::ng-deep .dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+        
+        font-size: x-small;
+    }
+}

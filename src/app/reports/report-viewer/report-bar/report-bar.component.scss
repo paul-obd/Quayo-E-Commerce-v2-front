@@ -1,0 +1,55 @@
+.report-bar-container {
+    display: flex;
+    padding: 10px;
+}
+
+.space-growth {
+    flex-grow: 8;
+}
+
+.title-container {
+    font-weight: 800;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+
+.spinner-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-spinner {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.mat-menu-icon {
+    height: 14px;
+    width: 14px;
+}
+
+.toolTipContainer {
+    white-space: normal;
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.dx-tooltip-wrapper {
+    width: 100%;
+}
+
+.text-nowrap {
+    cursor: default;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

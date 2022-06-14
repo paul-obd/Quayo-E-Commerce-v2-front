@@ -1,0 +1,163 @@
+img{
+    margin-top: 5%;
+    margin: 10%;
+}
+
+.quantity{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+ 
+}
+
+.quantity-input{
+    width: 25%;
+    background-color: transparent;
+    border: transparent;   
+ border: 0;
+    outline: 0;
+    text-align: center !important;
+    
+
+}
+
+.quantity-input :active{
+    border: 0;
+    outline: 0;
+    border: transparent;
+    
+}
+
+:host ::ng-deep .mat-card-image:first-child {
+    margin-top: 5% !important;
+    margin-left: 5% !important;
+    margin: 16% !important;
+}
+
+:host ::ng-deep .mat-card-image {
+    width: auto !important;
+   
+    object-fit: contain;
+    margin: 0% !important;
+    display:  auto !important;
+    overflow: auto;
+}
+
+:host ::ng-deep .mat-icon{
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start !important;
+    background-color: var(--bgColor);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.price{
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    align-items: center;
+ 
+}
+h2{
+    font-weight: bold;
+    font-size: medium !important;
+    color: var(--blue);
+
+
+}
+
+
+.lbp{
+   
+    color: rgba(44, 67, 72, 0.911);
+    font-size: x-small;
+    font-weight: normal;
+    padding-inline-start: 2px;
+    margin-bottom: 10%;
+
+}
+
+td{
+    vertical-align: middle !important;
+    white-space: normal !important;
+}
+
+th{
+    text-align: start !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.disable-mat-icon{
+    cursor: not-allowed;
+    pointer-events: none;
+    filter:opacity(0.5);
+}
+
+:host ::ng-deep .mat-card-image:first-child {
+    margin-top: 0% !important;
+    margin-left: 0% !important;
+    margin: 0% !important;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    tr{
+        font-size: x-small;
+    }
+    td{
+        font-size: x-small;
+        white-space: normal !important;
+    }
+    h2{
+        font-weight: bold;
+        font-size: x-small !important;
+        color: var(--blue);
+    
+    
+    }
+    .quantity{
+        display: flex;
+        justify-content: space-between !important;
+        align-items: center;
+        flex-direction: row;
+     
+    }
+    
+    
+    :host ::ng-deep .dx-button{
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0% !important;
+        font-size: xx-small !important;
+    }
+
+    :host ::ng-deep .mat-icon{
+        width: 10% !important;
+        background-color: transparent !important;
+    }
+
+
+
+ 
+}
+
+
+:host ::ng-deep .dx-datagrid-content .dx-datagrid-table .dx-row > td, .dx-datagrid-content .dx-datagrid-table .dx-row > tr > td {
+    vertical-align: middle !important;
+}

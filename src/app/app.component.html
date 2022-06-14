@@ -1,0 +1,6 @@
+<mat-progress-bar *ngIf="'default' | swIsLoading | async" mode="indeterminate" color="warn" style="position: absolute; top: 0; z-index: 100;">
+
+</mat-progress-bar>
+<router-outlet>
+    <app-spinner></app-spinner>
+</router-outlet>

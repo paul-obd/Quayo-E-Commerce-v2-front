@@ -1,0 +1,205 @@
+.report-data-container {
+    position: relative;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.data-section {
+    margin-left: 10px;
+    width: 100%;
+    height: calc(100vh - 163px);
+}
+
+::ng-deep .demo-container {
+    height: calc(100vh - 163px);
+    width: calc(100% - 20px);
+}
+
+::ng-deep .dx-filterbuilder-overlay .dx-scrollable-container {
+    max-height: calc(100vh - 163px);
+}
+
+::ng-deep .dx-datagrid {
+    line-height: inherit;
+    z-index: 0;
+}
+
+::ng-deep .dx-toolbar-items-container {
+    max-height: 40px;
+}
+
+::ng-deep .dx-datagrid-headers .dx-datagrid-table .dx-row>td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #edf0ff;
+}
+
+::ng-deep .dx-datagrid .dx-row>td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+::ng-deep .dx-datagrid .dx-editor-with-menu {
+    height: 30px;
+}
+
+::ng-deep .dx-datagrid-content .dx-datagrid-table .dx-row .dx-editor-container {
+    background: rgba(255, 255, 255, 0);
+    font-size: 14px;
+    height: 30px;
+    line-height: 48px;
+}
+
+::ng-deep .dx-editor-cell .dx-texteditor .dx-texteditor-input {
+    background: rgba(255, 255, 255, 0);
+    font-size: 14px;
+    height: 30px;
+    line-height: 48px;
+}
+
+::ng-deep .dx-datagrid .dx-menu .dx-menu-item .dx-menu-item-content,
+.dx-datagrid-container .dx-menu .dx-menu-item .dx-menu-item-content {
+    padding: 0px;
+}
+
+::ng-deep .dx-menu .dx-menu-item .dx-menu-item-content {
+    padding: 0px;
+}
+
+::ng-deep .dx-datagrid-filter-panel {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+}
+
+::ng-deep .dx-pager {
+    padding-top: 10px;
+}
+
+::ng-deep .dx-datagrid-rowsview .dx-row>td,
+.dx-datagrid-rowsview .dx-row>tr>td {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+::ng-deep .dx-datagrid .dx-row-alt>td,
+.dx-datagrid .dx-row-alt>tr>td {
+    background-color: #f2f2f2;
+}
+
+::ng-deep .dx-row {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+::ng-deep .dx-datagrid-header-panel {
+    border-bottom: 0px solid #e0e0e0;
+    padding: 0 14px 0 24px;
+    background-color: #fff;
+}
+
+::ng-deep .dx-datagrid-headers .dx-datagrid-table .dx-row>td {
+    line-height: 16px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #4e4e4e
+}
+
+@media(max-width:600px) {
+     ::ng-deep .dx-datagrid-search-panel {
+        display: none;
+    }
+}
+
+::ng-deep .dx-data-row.dx-state-hover:not(.dx-selection):not(.dx-row-inserted):not(.dx-row-removed):not(.dx-edit-row)>td:not(.dx-focused) {
+    background-color: #d0d0d0;
+}
+
+.open-image-button-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center
+}
+
+.country-flag-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.client-status-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+// changes
+::ng-deep #gridContainer .diff {
+    position: relative;
+    display: table-cell;
+    font-size: 16px;
+}
+
+::ng-deep #gridContainer .inc .diff {
+    color: #2ab71b;
+}
+
+::ng-deep #gridContainer .inc .diff:before {
+    content: '+';
+}
+
+::ng-deep #gridContainer .dec .diff:before {
+    content: '-';
+}
+
+::ng-deep #gridContainer .dec .diff {
+    color: #f00;
+}
+
+::ng-deep #gridContainer .inc .diff:after,
+::ng-deep #gridContainer .dec .diff:after {
+    content: '';
+    display: block;
+    height: 10px;
+    width: 10px;
+    position: absolute;
+    right: -12px;
+    top: 6px;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+}
+
+::ng-deep #gridContainer .inc .diff:after {
+    background-image: url('assets/images/reports/icons/arrow-up.svg');
+}
+
+::ng-deep #gridContainer .dec .diff:after {
+    background-image: url('assets/images/reports/icons/arrow-down.svg');
+}
+
+//percentage
+::ng-deep .dx-datagrid .dx-data-row>td.bullet {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+//checkbox
+::ng-deep .dx-datagrid-checkbox-size.dx-checkbox-indeterminate .dx-checkbox-icon {
+    text-align: center !important;
+}
+
+// yes no dialog
+::ng-deep .dx-popup-content .dx-dialog-content {
+    height: 20px !important;
+}
+
+::ng-deep .dx-popup-bottom {
+    height: 50px;
+}

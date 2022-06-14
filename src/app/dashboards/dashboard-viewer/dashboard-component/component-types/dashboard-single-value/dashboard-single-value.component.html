@@ -1,0 +1,20 @@
+<div class="component-container" [ngStyle]="{'height': height}">
+    <div class="icon-container">
+        <div class="icon" [ngStyle]="{'background-color':schema.leftSideBgColor}">
+            <mat-icon [svgIcon]="schema.icon"></mat-icon>
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="data">
+
+            <div class="title" matTooltip="{{ schema.title }}">
+                {{ schema.title }}
+            </div>
+
+            <div *ngIf="datasource" class="value" matTooltip="{{ datasource.Table[0].value }}">
+                {{datasource.Table[0].value}}
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+.filter-panel-action-container {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  justify-content: center;
+  align-items: center;
+  grid-row-gap: 3px;
+  grid-column-gap: 10px;
+}
+
+.item-container {
+  padding: 5px;
+}
+
+.filter-button {
+  width:100%;
+}
+
+@media(max-width: 1000px){
+  .filter-panel-action-container {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    align-items: center;
+    grid-row-gap: 3px;
+    grid-column-gap: 10px;
+  }
+}
+
+.spinner-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-container {
+  display: inline-block;
+  position: relative;
+}
+
+.button-spinner-container {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0px;
+}

@@ -1,0 +1,65 @@
+<!--Bar Section-->
+<div class="report-bar-container">
+
+    <!--Report Title-->
+    <div class="title-container text-nowrap">
+        <app-icon-button [text]="reportTitle" matTooltip="{{ reportTitle }}"></app-icon-button>
+        <app-icon-button id="overview_btn" mat-button (mouseenter)="toggleWithTemplate()" (mouseleave)="toggleWithTemplate()" [iconSvg]="'custom_icon_panel_information'">
+        </app-icon-button>
+    </div>
+
+    <!--Report Growth Space-->
+    <span class="space-growth">
+        <span [hidden]="panelOpen" id="report-space-growth-span"></span>
+    </span>
+    <!-- Overview Button -->
+    <dx-tooltip target="#overview_btn" position="right" [(visible)]="withTemplateVisible" [closeOnOutsideClick]="false">
+        <div class="toolTipContainer" *dxTemplate="let data = data of 'content'">
+            <span>
+                {{reportOverview}}
+            </span>
+        </div>
+    </dx-tooltip>
+
+    <!--Export Button-->
+    <app-icon-button mat-button [hidden]="panelOpen || isLoadingExportFile" matTooltip="{{ 'EXPORT' | translate }}" [matMenuTriggerFor]="export" [cursor]="'pointer'" [iconSvg]="'custom_icon_panel_export'"></app-icon-button>
+
+    <mat-menu #export="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="excel" [disabled]="!exportExcelEnabled"><mat-icon svgIcon="custom_icon_panel_excel" class="mat-menu-icon"></mat-icon>Excel</button>
+        <button mat-menu-item (click)="exportAllData('csv')" [disabled]="!exportCsvEnabled"><mat-icon svgIcon="custom_icon_panel_csv" class="mat-menu-icon"></mat-icon>CSV</button>
+        <!-- <button mat-menu-item (click)="exportAllData('pdf')" [disabled]="!exportPdfEnabled"><mat-icon svgIcon="custom_icon_panel_pdf" class="mat-menu-icon"></mat-icon>PDF</button> -->
+        <button mat-menu-item [matMenuTriggerFor]="pdf" [disabled]="!exportPdfEnabled"><mat-icon svgIcon="custom_icon_panel_pdf" class="mat-menu-icon"></mat-icon>PDF</button>
+
+    </mat-menu>
+
+    <mat-menu #excel="matMenu">
+        <button mat-menu-item (click)="exportAllData('xlsx')">{{ 'EXPORT ALL DATA' | translate }}</button>
+        <button mat-menu-item (click)="exportToExcelSelectedData()">{{ 'EXPORT SELECTED DATA' | translate }}</button>
+    </mat-menu>
+    <mat-menu #pdf="matMenu">
+        <button mat-menu-item (click)="exportAllData('pdf')" [disabled]="!exportPdfEnabled">{{ 'BASIC REPORT' | translate }}</button>
+        <button mat-menu-item (click)="exportSpecial('pdf')" [disabled]="!exportSpecialPdfEnabled">{{ 'SPECIAL REPORT' | translate }}</button>
+    </mat-menu>
+
+    <span class="spinner-container">
+        <mat-spinner *ngIf="isLoadingExportFile" diameter="24"></mat-spinner>
+    </span>
+
+
+
+    <!--Column Chooser Button-->
+    <app-icon-button mat-button [hidden]="panelOpen" (click)="showColumnChooser()" matTooltip="{{ 'COLUMN CHOOSER' | translate }}" [cursor]="'pointer'" [iconSvg]="'custom_icon_column_chooser'">
+    </app-icon-button>
+
+    <!-- Favorite button -->
+    <app-icon-button mat-button (click)="toggleFavorite()" matTooltip="{{ 'FAVORITE' | translate }}" [cursor]="'pointer'" [iconSvg]="isReportFavorite?'custom_icon_star_solid':'custom_icon_star_regular'">
+    </app-icon-button>
+
+    <!--Filter Button-->
+    <app-icon-button #filterButton *ngIf="hasReportFilters" matTooltip="{{ 'SHOW FILTER' | translate }}" (click)="togglePanel()" [cursor]="'pointer'" [iconSvg]="'custom_icon_panel_filter'" [arrow]="'expand_less'">
+    </app-icon-button>
+
+</div>
+
+<!--Filter Panel Section-->
+<app-filter-panel *ngIf="FiltersData" [FiltersData]="FiltersData" [reportBarComonent]="this"></app-filter-panel>

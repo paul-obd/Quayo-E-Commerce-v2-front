@@ -1,0 +1,9 @@
+<div class="content">
+
+     
+    <app-filter-attr *ngFor="let attr of attributeValueService.attributes"
+    [attribute]="attr"
+    [attributeValues]="attr.attributeValues"
+    ></app-filter-attr>
+
+</div>

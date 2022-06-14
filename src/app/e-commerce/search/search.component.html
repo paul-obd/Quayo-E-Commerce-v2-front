@@ -1,0 +1,10 @@
+<form>
+
+
+        <mat-form-field   @search appearance="outline">
+            <mat-label>{{'SEARCH A PRODUCT' | translate}}</mat-label>
+            <input matInput name="searchBar"  #search [(ngModel)]="itemsService.searchVar" >
+            <mat-icon matSuffix (click)="closeSearch($event)">close</mat-icon>
+          </mat-form-field>
+
+</form>

@@ -1,0 +1,57 @@
+<div class="login-register" style="background-color:#1e88e5;">
+
+    <div class="login-register-box"  [dir]="dir">
+
+        <mat-card>
+            <mat-card-content>
+
+                <img *ngIf="isBetaVersion" style="height:90px; position:absolute; top: 0px; left: 0px;" src="assets/images/beta-version-icon.png" />
+
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="text-center">
+                        <img alt="homepage" src="assets/images/quayo-logo-blue.svg">
+                        <h4 class="m-t-0">{{'LOGIN TITLE' | translate}}</h4>
+                    </div>
+
+                    <div fxLayout="row wrap">
+                        <!-- col full-->
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                            <mat-form-field>
+                                <input matInput placeholder="{{'USER CODE' | translate}}" [formControl]="form.controls['user_code']">
+                            </mat-form-field>
+                            <small *ngIf="form.controls['user_code'].hasError('required') && form.controls['user_code'].touched" class="text-danger support-text">{{'USER CODE REQUIRED' | translate}}.</small>
+                        </div>
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+                            <mat-form-field>
+
+                                <input matInput [type]="hide ? 'password' : 'text'" placeholder="{{'PASSWORD' | translate}}" [formControl]="form.controls['password']">
+                                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+                                </mat-icon>
+                            </mat-form-field>
+                            <small *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched" class="text-danger support-text">{{'PASSWORD REQUIRED' | translate}}.</small>
+                        </div>
+                        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50">
+                            <!-- <mat-checkbox color="warn">{{'REMEMBER ME' | translate}}</mat-checkbox> -->
+                            <a [routerLink]="['/authentication/register']" class="link">{{'REGISTER' | translate}}?</a>
+                        </div>
+                        <div fxFlex.gt-sm="50" fxFlex.gt-xs="50" class="text-right">
+                            <a (click)="onForget()" style="cursor:pointer;" class="link">{{'FORGOT PWD' |
+                                translate}}?</a>
+                        </div>
+
+                        <div fxFlex.gt-sm="100" fxFlex.gt-xs="100" fxFlex="100">
+
+                            <button mat-raised-button [disabled]="buttonDisabled" type="submit" class="btn-block btn-lg m-t-20 m-b-20" color="primary">
+                                <div *ngIf="buttonDisabled" class="button-spinner-container">
+                                    <mat-spinner diameter="24"></mat-spinner>
+                                </div>
+                                <span *ngIf="!buttonDisabled">Login</span>
+                            </button>
+
+                        </div>
+                    </div>
+                </form>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

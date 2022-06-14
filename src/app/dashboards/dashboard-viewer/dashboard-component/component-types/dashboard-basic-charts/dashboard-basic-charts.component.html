@@ -1,0 +1,32 @@
+<ng-container #chartTopSideContainer></ng-container>
+
+<div class="component-container" [ngStyle]="{'height': height}">
+
+    <dx-chart *ngIf="datasource" id="chart" #chart [rotated]="(schema.rotated == '1') ? true : false" [dataSource]="datasource.Table" (onSeriesClick)="onSeriesClick($event)" [palette]="schema.palette" [paletteExtensionMode]="'schema.paletteExtensionMode'">
+
+        <dxo-zoom-and-pan *ngIf="schema.zoom == '1'" argumentAxis="both"></dxo-zoom-and-pan>
+        <dxo-scroll-bar [visible]="schema.zoom == '1'"></dxo-scroll-bar>
+
+        <!--For Single Series-->
+        <dxo-common-series-settings *ngIf="!datasource.Table1" argumentField="key" valueField="value" [type]="schema.type" hoverMode="allArgumentPoints" selectionMode="allArgumentPoints" [ignoreEmptyPoints]="true">
+        </dxo-common-series-settings>
+        <dxo-series-template *ngIf="!datasource.Table1" nameField="key">
+        </dxo-series-template>
+        <!------------------------------------------------------------------->
+        <!--For Multi Series-->
+        <dxo-common-series-settings *ngIf="datasource.Table1" argumentField="key" hoverMode="allArgumentPoints" selectionMode="allArgumentPoints">
+        </dxo-common-series-settings>
+        <dxi-series *ngFor="let serie of datasource.Table1" [valueField]="serie.value_field" [type]="serie.type" [visible]="!isComponentHidden" [name]="serie.name">
+        </dxi-series>
+        <!------------------------------------------------------------------->
+
+        <dxo-tooltip [enabled]="true" [zIndex]="5000" [customizeTooltip]="customizeTooltip" [format]="{
+                                type: 'fixedPoint',
+                                precision: '0'}">
+        </dxo-tooltip>
+
+        <dxo-legend orientation="center" itemTextPosition="center" [horizontalAlignment]="schema.legend_horizontal_alignment" [verticalAlignment]="schema.legend_vertical_alignment" [columnCount]="schema.label_columns_count" [visible]="(schema.legend_visible == '1') ? true : false">
+        </dxo-legend>
+
+    </dx-chart>
+</div>

@@ -1,0 +1,8 @@
+<div class="main-container" *ngIf="enableToCreate">
+    <!--Report Bar Section-->
+    <app-report-bar #reportbarComponent [reportTitle]="reportSchema.description" [FiltersData]="FiltersData" [reportDataComponent]="reportdataComponent" [reportViewerComponent]="this"></app-report-bar>
+
+    <!--Report Data Section-->
+    <app-report-data #reportdataComponent [reportSchema]="reportSchema" [reportbarComponent]="reportbarComponent">
+    </app-report-data>
+</div>

@@ -1,0 +1,14 @@
+::ng-deep .dx-pivotgrid .dx-pivotgrid-area.dx-pivotgrid-horizontal-headers td,
+::ng-deep .dx-pivotgrid .dx-pivotgrid-area.dx-pivotgrid-vertical-headers td {
+    font-weight: 500;
+    background-color: rgba(221, 221, 221, .2);
+}
+
+::ng-deep #gridContainer {
+    height: calc(100vh - 170px) !important;
+    width: calc(100% - 20px) !important;
+}
+
+::ng-deep .dx-pivotgrid-toolbar{
+    visibility: hidden;
+}

@@ -1,0 +1,65 @@
+<div class="container" [dir]="languageService.lang == 'en'? 'ltr': languageService.lang == 'fr'? 'ltr' : 'rtl'">
+    <div class="head">
+        <div class="remove-all-btn" *ngIf="basketService.basket.length !== 0">
+            <button [disabled]="basketService.basket.length <= 0" mat-raised-button (click)="deleteAllFromBasket()" color="warn">{{'Remove All' | translate}} ({{basketService.basket.length}})</button>
+        </div>
+    </div>
+    <mat-divider *ngIf="basketService.basket.length !== 0"></mat-divider>
+    <div *ngIf="basketService.basket.length <= 0" class="container-fluid no-items">
+        <div fxLayout="row wrap">
+            <div fxFlex.xl="100" fxFlex.lg="100" fxFlex.md="100" fxFlex.sm="100" fxFlex.xs="100" class="text-center">
+                <img src="../../../assets/images/e-commerce/empty-basket.png" width="130" height="130" class="img-fluid mb-4 mr-3" alt="">
+                <h3><strong>{{'EMPTY SHOPPING BASKET' | translate}}</strong></h3>
+                <a mat-raised-button href="/e-commerce/e-commerce-main-page/home" class="" color="primary" data-abc="true">{{'GO BACK' | translate}}</a>
+            </div>
+
+        </div>
+
+    </div>
+    <div *ngIf="basketService.basket.length > 0" class="content-body">
+        <div class="basket-content mat-elevation-z5">
+            <div class="body">
+                <app-basket-item *ngFor="let item of basketService.basket; let i = index" [i]="i" [itemCode]="item.item_code" [description]="item.description" [price]="item.price" [in_stock]="item.in_stock" [image_path]="item.image_path" [orderQuantity]="item.orderQuantity"
+                    [supplier]="item.supplier"></app-basket-item>
+
+            </div>
+            <hr class="mat-elevation-z1" *ngIf="this.responsiveService.isMobile == true">
+            <div class="footer" *ngIf="this.responsiveService.isMobile == true">
+                <div class="sub-total-and-checkout">
+                    <div class="sub-total">
+                        <div class="sub-total-title">
+                            <h1 class="sub-tot-h1">{{'Sub Total' | translate}}:</h1>
+                            <p>{{basketService.basket.length}} {{'items' | translate}}</p>
+                        </div>
+                        <div class="sub-total-price">
+                            <div class="item-price">
+                                <h1 class="price">{{basketService.total | number}}</h1> <span class="lbp">LBP </span>
+                            </div>
+                        </div>
+                    </div>
+                    <button mat-flat-button (click)="checkout()" color="primary" class="checkout-btn">{{'Checkout' |
+                        translate}}</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="big-screen-total mat-elevation-z3" *ngIf="this.responsiveService.isMobile == false">
+            <div class="big-screen-sub-total-and-checkout">
+                <div class="big-screen-sub-total">
+                    <div class="sub-total-title">
+                        <h1 class="sub-tot-h1">{{'Sub Total' | translate}}:</h1>
+                        <div class="item-price ">
+                            <h1 class="price">{{basketService.total | number}}</h1> <span class="lbp">LBP </span>
+                        </div>
+                        <p>{{basketService.basket.length}} {{'items' | translate}}</p>
+                    </div>
+                </div>
+                <button mat-flat-button color="primary" (click)="checkout()" class="checkout-btn">{{'Checkout' |
+                    translate}}</button>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

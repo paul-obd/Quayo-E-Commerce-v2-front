@@ -1,0 +1,231 @@
+.content {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+::ng-deep html body .p-r-30 {
+    padding-right: 0% !important;
+}
+
+::ng-deep html body .p-l-30 {
+    padding-left: 0% !important;
+}
+
+::ng-deep html body .p-b-20 {
+    padding-bottom: 0% !important;
+}
+
+::ng-deep html body .p-t-20 {
+    padding-top: 0% !important;
+}
+
+::ng-deep html .page-wrapper .page-content {
+    padding: 0px !important;
+}
+
+.carousel {
+    width: 100% !important;
+}
+
+.search {
+    margin-inline-start: 2%;
+}
+
+.grid-btn {
+    margin-inline-start: 2%;
+}
+
+.filter-and-sort {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+}
+
+.sortby {
+    margin-inline-start: 1%;
+}
+
+.drop-list {
+    font-size: small;
+}
+
+.drop-list-quantity {
+    font-weight: bold;
+    padding-inline-start: 3px;
+}
+
+.drop-list-total {
+    font-weight: bold;
+}
+
+app-filter {
+    width: 50%;
+}
+
+::ng-deep .mat-divider {
+    margin-bottom: 1% !important;
+}
+
+.i-a-f {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.search-btn {
+    margin-top: 1% !important;
+}
+
+.total {
+    color: var(--blue);
+    padding-inline-start: 2px;
+}
+
+.lbp {
+    position: absolute;
+    top: 10%;
+    color: rgba(44, 67, 72, 0.911);
+    font-size: x-small;
+    font-weight: normal;
+    padding-inline-start: 2px;
+}
+
+.filterAndSerch {
+    width: 100%;
+    margin-bottom: 0.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+.for-mobile {
+    width: 100%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.filter-sortBy-cart-grid-btns {
+    width: 100%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.filter-open {
+    margin-inline-start: 4% !important;
+    width: 86% !important;
+}
+
+.search-button {
+    margin-inline-start: 2% !important;
+}
+
+
+/*mat drawerrr*/
+
+:host ::ng-deep .mat-drawer {
+     ::-webkit-scrollbar {
+        width: 6px;
+    }
+     ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+     ::-webkit-scrollbar-thumb {
+        background-color: rgba(155, 155, 155, 0.5);
+        border-radius: 20px;
+        border: transparent;
+    }
+    max-width: 20% !important;
+    min-height: 100vh;
+    border-right: none;
+    overflow-y: hidden !important;
+}
+
+:host ::ng-deep .mat-drawer-content {
+    min-height: 100vh;
+}
+
+.mat-drawer-content-width {
+    width: 100% !important;
+}
+
+.items {
+    margin-inline-start: 1%;
+    background-color: #eef5f9;
+}
+
+.search {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+:host ::ng-deep .mat-button {
+    border: 1px solid var(--blue);
+    border-radius: 6px;
+    // padding: 0.8em;
+    padding-inline-start: 1em;
+    padding-inline-end: 1em;
+}
+
+.mat-mini-fab-custom {
+    background-color: var(--blue) !important;
+}
+
+.for-mobile-search {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mobile-search {
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .search-btn {
+        margin-top: 2% !important;
+    }
+    .items {
+        /* margin-left: 0%; */
+        margin-inline-start: 0%;
+    }
+     :host ::ng-deep .mat-drawer-content {
+        width: 100% !important;
+    }
+     :host ::ng-deep .mat-drawer {
+        max-width: 100% !important;
+        min-height: 100vh;
+        border-right: none;
+        overflow-y: hidden !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-btn {
+        margin-top: 2.5% !important;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .search-btn {
+        margin-top: 1% !important;
+    }
+}

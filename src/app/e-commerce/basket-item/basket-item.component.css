@@ -1,0 +1,176 @@
+.content{
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+p{
+    color: rgb(75, 75, 75);
+}
+
+.img{
+    width: 15%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 100% ;
+    height: 100%;
+    object-fit: contain;
+}
+
+.body{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+.description{
+    width: 40%;
+  
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+h2{
+    font-size: large;
+    font-weight: bold;
+}
+
+.lbp{
+   
+    color: rgba(44, 67, 72, 0.911);
+    font-size: small;
+    margin-bottom: 12%;
+}
+
+.price{
+    width: 40%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+}
+
+.price h1{
+    color: var(--lblue);
+}
+
+.delete{
+    background-color: transparent !important;
+    color: rgb(204, 41, 41);
+    margin-right: 0px !important;
+}
+
+.mat-card-image:first-child {
+    margin-top: 0px; 
+}
+
+@media screen and (max-width: 480px) {
+
+    h2{
+        font-size: x-small;
+    }
+
+    p{
+        font-size: xx-small;
+    }
+
+    .img{
+        width: 30%;
+    }
+
+    .body{
+
+        margin-left: 2%;
+
+    }
+}
+
+
+
+
+
+.quantity{
+    display: flex;
+    justify-content: start;
+    align-items: center !important;
+    color: rgba(44, 67, 72, 0.911);
+
+}
+
+.quantity-input{
+    width: 25%;
+    background-color: transparent;
+    border: transparent;   
+ border: 0;
+    outline: 0;
+    text-align: center !important;
+
+}
+
+.quantity-input :active{
+    border: 0;
+    outline: 0;
+    border: transparent;
+    
+}
+
+:host ::ng-deep .mat-icon{
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start !important;
+    background-color: var(--bgColor);
+    border-radius: 50%;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.item-price{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    
+}
+
+h2{
+    font-weight: bolder;
+    font-size: medium !important;
+
+
+}
+
+.lbp{
+   
+    color: rgba(44, 67, 72, 0.911);
+    font-size: x-small;
+    font-weight: normal;
+    padding-inline-start: 2px;
+
+}

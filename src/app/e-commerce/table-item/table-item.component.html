@@ -1,0 +1,36 @@
+
+   
+        <td>
+            <div class="img">
+                <img width="50" height="50" mat-card-image [src]="image_path"
+                    loading="lazy" (error)="setNoImage($event)" alt="Photo of an item">
+            </div>
+        </td>
+        <td>{{description}}</td>
+        <td>
+            <div class="price">
+                <h2>{{price | number }}</h2> <span class="lbp">LBP </span>
+            </div>
+        </td>
+        <td>
+            <div class="quantity">
+                <mat-icon [ngClass]="{'disable-mat-icon': in_stock == false}" (click)="decreaseQuantity()">remove
+                </mat-icon>
+                <input [disabled]="in_stock == false" (keypress)="validateNumber($event)" (keyup)="seeIfZero()"
+                    class="quantity-input" type="number" [(ngModel)]="orderQuantity">
+                <mat-icon [ngClass]="{'disable-mat-icon': in_stock == false}" (click)="addQuantity()">
+                    add</mat-icon>
+            </div>
+        </td>
+        <td class="btn-td">
+
+                <dx-button
+                [disabled]="in_stock == false"
+                stylingMode="contained"
+                [text]="'ADD TO BASKET' | translate"
+                type="default"
+                (onClick)="addToBasket()"
+              >
+              </dx-button>
+        </td>
+  

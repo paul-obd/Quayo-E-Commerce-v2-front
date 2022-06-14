@@ -1,0 +1,13 @@
+<div class="component-container" [ngStyle]="{'height': height}">
+
+    <dx-map provider="bing" *ngIf="isMapReady"
+            [zoom]="11"
+            width="100%"
+            height="100%"
+            [controls]="true"
+            [markerIconSrc]="mapMarkerUrl"
+            [markers]="originalMarkers"
+            >
+    </dx-map>
+
+</div>

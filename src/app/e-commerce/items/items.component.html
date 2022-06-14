@@ -1,0 +1,26 @@
+<div class="content" #content id="content" *ngIf="loadingService.loadBar==false" (scroll)="onScroll()">
+    <!-- infinite-scroll-->
+    <div class="spinner" *ngIf="loadingService.loadSpinner == true">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div *ngIf="loadingService.loadSpinner == false">
+        <div *ngIf="itemsService.items.length > 0 && responsiveService.grid == 'cards'" fxLayout="row wrap" fxLayoutGap="10px grid">
+            <div fxFlex.md="33.33%" fxFlex.lg="33.33%" fxFlex.xl="33.33%" fxFlex.xs="100%" fxFlex.sm="100%" *ngFor="let item of itemsService.items">
+                <app-item [item_code]="item.item_code" [description]="item.description" [price]="item.price" [in_stock]="item.in_stock" [currency]="item.currency" [default_discount]="item.default_discount" [sub_description]="item.sub_description" [image_path]="item.image_path"></app-item>
+            </div>
+        </div>
+
+
+        <app-items-table *ngIf="itemsService.items.length > 0 && responsiveService.grid == 'table'"></app-items-table>
+
+        <div *ngIf="(itemsService.searchMode == true && itemsService.items.length == 0 && loadingService.loadSpinner == false)
+    || (itemsService.filterAttributeValuesCode && itemsService.items.length == 0)" class="no-items-found">
+
+            <img src="../../../assets/images/item_no.png" alt="">
+        </div>
+
+        <div *ngIf="loadingService.paginationLoad == true" class="pagination-load">
+
+            <mat-spinner style="margin:0 auto;" [diameter]="30"></mat-spinner>
+        </div>
+    </div>

@@ -1,0 +1,50 @@
+<div class="contain">
+    <mat-card class="card">
+        <div class="card-head">
+            <div [ngClass]="in_stock == false ? 'danger-badge': 'success-badge'">
+                <p *ngIf="in_stock == false">{{'SOLD-OUT' | translate}}</p>
+                <p *ngIf="in_stock == true">{{'IN-STOCK' | translate}}</p>
+            </div>
+            <div class="heart-badge-grey">
+                <i class="fa fa-heart" (click)="toggleHeart()"  [ngClass]="isAddedToFavorites == true ? 'red-heart' : ''"></i>
+            </div>
+            <img (load)="onImageLoad()" mat-card-image [src]="image_path" loading="lazy" alt="Photo of an item" (error)="setNoImage($event)">
+        </div>
+        <mat-divider inset></mat-divider>
+        <div class="card-body">
+            <div class="body-content">
+                <div class="description">
+                    <p>{{description}}</p>
+                </div>
+                <div class="sub-description">
+                    <p class="text-muted">{{sub_description}}</p>
+                </div>
+
+                <div class="price">
+                    <div class="item-price">
+                        <div class="product-price"><small>{{currency}}</small>{{price | number}}
+                            <code>{{default_discount}}</code>
+                        </div>
+                    </div>
+                    <div class="quantity">
+                        <mat-icon [ngClass]="{'disable-mat-icon': in_stock == false}" (click)="decreaseQuantity()">
+                            remove
+                        </mat-icon>
+                        <input [disabled]="in_stock == false" (keypress)="validateNumber($event)" (keyup)="seeIfZero()" class="quantity-input" type="number" [(ngModel)]="orderQuantity">
+                        <mat-icon [ngClass]="{'disable-mat-icon': in_stock == false}" (click)="addQuantity()">add
+                        </mat-icon>
+                    </div>
+
+                </div>
+
+
+                <div class="btnn">
+                    <button [disabled]="in_stock == false" mat-flat-button class="add-to-basket-btn" (click)="addToBasket()">
+                        <mat-icon class="icon-text-button">shopping_cart</mat-icon>{{'ADD TO BASKET' | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+
+</div>

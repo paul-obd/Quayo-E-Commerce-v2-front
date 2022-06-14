@@ -1,0 +1,21 @@
+<div *ngIf="isPivotReady">
+
+    <div id="pivotgrid">
+        <dx-chart id="chartContainer">
+            <dxo-common-series-settings type="bar"></dxo-common-series-settings>
+            <dxo-size [height]="200"></dxo-size>
+            <dxo-adaptive-layout [width]="200"></dxo-adaptive-layout>
+            <!-- <dxo-tooltip [enabled]="true" [customizeTooltip]="customizeTooltip"></dxo-tooltip> -->
+        </dx-chart>
+        <dx-pivot-grid style="margin-top: 10px;" id="gridContainer" [showBorders]="true" [allowSortingBySummary]="reportData._reportSchema.pivot_allow_sorting_by_summary" [allowFiltering]="reportData._reportSchema.pivot_allow_filtering" [showRowTotals]="reportData._reportSchema.pivot_show_row_totals"
+            [showRowGrandTotals]="reportData._reportSchema.pivot_show_row_grand_totals" [showColumnTotals]="reportData._reportSchema.pivot_show_column_totals" [showColumnGrandTotals]="reportData._reportSchema.pivot_show_column_grand_totals" [dataSource]="pivotGridDataSource"
+            (onExporting)="onExporting($event)">
+            <dxo-scrolling mode="virtual"></dxo-scrolling>
+            <dxo-field-chooser [enabled]="true"></dxo-field-chooser>
+            <dxo-export [enabled]="true"></dxo-export>
+            <dxo-field-panel [showDataFields]="reportData._reportSchema.pivot_show_data_fields" [showRowFields]="reportData._reportSchema.pivot_show_row_fields" [showColumnFields]="reportData._reportSchema.pivot_show_column_fields" [showFilterFields]="reportData._reportSchema.pivot_show_filter_fields"
+                [allowFieldDragging]="true" [visible]="true">
+            </dxo-field-panel>
+        </dx-pivot-grid>
+    </div>
+</div>

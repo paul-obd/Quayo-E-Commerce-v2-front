@@ -1,0 +1,16 @@
+.main-content{
+    z-index: 100000000;
+}
+
+:host ::ng-deep .mat-mini-fab{
+    z-index: 9999;
+}
+::ng-deep html .page-wrapper {
+    height: auto !important;
+      // height: calc(100vh - 64px);
+      // .page-content {
+      //     padding: 8px 6px;
+      // }
+    }
+
+

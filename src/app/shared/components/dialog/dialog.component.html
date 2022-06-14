@@ -1,0 +1,7 @@
+<h3 [dir]="dir" mat-dialog-title *ngIf="title !== null" [dir]="dir">{{title | translate}}</h3>
+<mat-dialog-content [dir]="dir">{{description | translate}}</mat-dialog-content>
+<span [dir]="dir" *ngIf="extra_text !== null" class="extra-text">{{extra_text | translate}}</span>
+<mat-dialog-actions [dir]="dir">
+    <button mat-button mat-dialog-close color="warn" mat-dialog-close="false">{{action_false | translate}}</button>
+    <button mat-button mat-dialog-close mat-dialog-close="true">{{action_true | translate}}</button>
+</mat-dialog-actions>

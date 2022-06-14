@@ -1,0 +1,6 @@
+<div #iconButtonContainer mat-button class="icon-button-container">
+  <mat-icon *ngIf="iconSvg" svgIcon="{{iconSvg}}" class="icon-button-icon"></mat-icon>
+  <mat-icon *ngIf="iconMat" class="icon-button-icon">{{iconMat}}</mat-icon>
+  <div *ngIf="text" class="icon-button-text">{{text}}</div>
+  <mat-icon *ngIf="arrow" matSuffix>{{arrow}}</mat-icon>
+</div>

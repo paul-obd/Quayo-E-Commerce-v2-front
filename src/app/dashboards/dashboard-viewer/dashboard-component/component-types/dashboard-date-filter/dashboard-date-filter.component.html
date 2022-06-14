@@ -1,0 +1,7 @@
+<div class="component-container">
+    <mat-form-field>
+        <input matInput autocomplete="off" (dateChange)="datePickerChange($event)" [matDatepicker]="picker" [placeholder]="schema.placeholder">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+</div>

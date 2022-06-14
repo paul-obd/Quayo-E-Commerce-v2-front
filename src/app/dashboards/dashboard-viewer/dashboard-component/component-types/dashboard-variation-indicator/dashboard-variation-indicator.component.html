@@ -1,0 +1,37 @@
+<div class="title-container">
+    <div *ngIf="schema.title" class="text-nowrap title" matTooltip="{{ schema.title }}">
+        {{ schema.title }}
+        <span *ngIf="schema.sub_title" class="text-muted text-nowrap sub-title" matTooltip="{{ schema.sub_title }}"> • {{ schema.sub_title }}</span>
+    </div>
+</div>
+
+<div class="component-container" [ngStyle]="{'height': height}">
+
+    <div class="main-container">
+
+        <div class="data" *ngIf="datasource">
+
+            <div [ngStyle]="{'color': datasource.Table[0].color}" class="value">
+                {{datasource.Table[0].value}}
+                <div *ngIf="datasource.Table[0].unit" class="unit">
+                    {{datasource.Table[0].unit}}
+                </div>
+            </div>
+
+            <div class="text-nowrap variation-container" [ngStyle]="{'color': (datasource.Table1[0].status == 'positive') ? 'green' : 'red'}">
+
+                <mat-icon svgIcon="custom_icon_arrow" [ngStyle]="{'transform': (datasource.Table1[0].mark == '+') ? 'rotate(-90deg)' : 'rotate(90deg)'}" class="variation-value-arrow"></mat-icon>
+
+                <div class="variation">
+                    {{datasource.Table1[0].mark}} {{datasource.Table1[0].changing_value}}
+                    <div class="text-nowrap variation-note" matTooltip="{{ datasource.Table1[0].note }}">
+                        • {{datasource.Table1[0].note}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

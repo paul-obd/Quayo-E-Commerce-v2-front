@@ -1,0 +1,16 @@
+::ng-deep .dx-gallery{
+    width: 100% !important;
+    object-fit: contain !important;
+    margin: 0% !important;
+}
+
+::ng-deep .dx-gallery-item-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+
+::ng-deep .dx-gallery-item{
+    object-fit: contain !important;
+}
